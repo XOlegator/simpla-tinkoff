@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+	<name>
+		Tinkoff банк
+	</name>
+	<settings>
+		<variable>tinkoff_terminal</variable>
+		<name>Терминал (выдается банком)</name>
+	</settings>
+	<settings>
+		<variable>tinkoff_secret</variable>
+		<name>Секретный ключ (выдается банком)</name>
+	</settings>
+	<settings>
+		<variable>tinkoff_gateway</variable>
+		<name>Адрес платежного шлюза (выдается банком)</name>
+	</settings>
+</module>
