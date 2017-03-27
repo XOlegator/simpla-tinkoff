@@ -32,8 +32,6 @@ try {
             die('OK');
         }
 
-        $isNeedChangeOrderStatus = false;
-
         switch ($_POST['Status']) {
             case 'AUTHORIZED': $order_status = '1'; break; /*Деньги на карте захолдированы. Корзина очищается.*/
             case 'CONFIRMED': $order_status = '2'; break; /*Платеж подтвержден.*/
@@ -45,16 +43,10 @@ try {
 
         if ($_POST['Status'] == 'CONFIRMED') {
             $update_array = array('paid' => 1);
-            $isNeedChangeOrderStatus = true;
         }
 
         // Установим статус оплачен
         $simpla->orders->update_order(intval($order->id), $update_array);
-
-        if ($isNeedChangeOrderStatus) {
-            // Установим статус заказа
-            $simpla->orders->update_order(intval($order->id), ['status' => '1']);
-        }
 
         // Спишем товары
         $simpla->orders->close(intval($order->id));
